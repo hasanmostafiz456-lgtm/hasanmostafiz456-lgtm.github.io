@@ -83,19 +83,19 @@ footer .wrapper{display:flex;justify-content:space-between;gap:10px}
       <div class="entry">
         <h3>Laboratory Techniques in Infectious Diseases (LTID), Molecular Biology &amp; Illumina NGS Training</h3>
         <p class="detail">Child Health Research Foundation (CHRF) and Bangladesh Shishu Hospital and Institute · 2026</p>
-        <a class="doc-link" data-file="certificates/chrf-ngs.pdf" href="certificates/chrf-ngs.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+        <a class="doc-link" data-file="certificates/CHRF_Certificate.png" href="certificates/CHRF_Certificate.png" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
       </div>
 
       <div class="entry">
         <h3>Training on Laboratory Animals Used in Biomedical Sciences</h3>
         <p class="detail">icddr,b, Dhaka, Bangladesh · 22–24 September 2026</p>
-        <a class="doc-link" data-file="certificates/icddrb-laboratory-animals.pdf" href="certificates/icddrb-laboratory-animals.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+        <a class="doc-link" data-file="certificates/Laboratory_Animals_Certificates.png" href="certificates/Laboratory_Animals_Certificates.png" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
       </div>
 
       <div class="entry">
         <h3>Laboratory Medicine Internship</h3>
         <p class="detail">National Institute of Laboratory Medicine &amp; Referral Centre (NILMRC) · October 2025</p>
-        <a class="doc-link" data-file="certificates/nilmrc-internship.pdf" href="certificates/nilmrc-internship.pdf" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
+        <a class="doc-link" data-file="certificates/NILMRC_Certificate.png" href="certificates/NILMRC_Certificate.png" target="_blank" rel="noopener noreferrer">View certificate ↗</a>
       </div>
     </section>
 
@@ -110,13 +110,13 @@ footer .wrapper{display:flex;justify-content:space-between;gap:10px}
 </main>
 <footer><div class="wrapper"><span>© 2026 Hasan Mostafiz Tabib</span><span>Certificates</span></div></footer>
 <script>
-// Links to PDFs are shown only after the named file has actually been uploaded.
-// Upload your own PDF scans to certificates/ using the exact filenames in the README.
+// Certificate links appear after the matching image or PDF is uploaded.
+// Upload the original certificate images to certificates/ with these exact filenames.
 if (location.protocol === 'https:' || location.protocol === 'http:') {
   document.querySelectorAll('[data-file]').forEach(async link => {
     try {
       const response = await fetch(link.getAttribute('data-file'), { method: 'HEAD' });
-      if (response.ok && response.headers.get('content-type')?.includes('pdf')) link.classList.add('ready');
+      if (response.ok && /^(image\/(png|jpeg|webp)|application\/pdf)/i.test(response.headers.get('content-type') || '')) link.classList.add('ready');
     } catch (_e) { /* No certificate file yet; don't display a broken link. */ }
   });
 }
